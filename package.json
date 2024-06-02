@@ -10,6 +10,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "node": "^22.2.0"
+    "chrome-types": "^0.1.286",
+    "node": "^22.2.0",
+    "openmeteo": "^1.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12"
   }
 }
