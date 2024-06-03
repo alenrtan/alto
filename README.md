@@ -5,8 +5,8 @@
 
 # Planned Features
 - Present the weather using a simple UI
-  - Pixel Art for display
-  - User-indicated mood indicators
+  - Temperature, Current conditions, Precipitation
+  - Optional: Sunrise/set, Wind, Cloud coverage, 3-day weather 
 - No login required
   - Only storing user-defined location.
  
