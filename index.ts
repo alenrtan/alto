@@ -1,5 +1,6 @@
 /*
 	CODE AQUIRED FROM OPEN-METEO
+	See: https://open-meteo.com/en/docs
 */
 
 import { fetchWeatherApi } from 'openmeteo';

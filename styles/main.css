@@ -1,3 +1,15 @@
 :root{
-    background: #4fc9c3;
+    --backgroundBlue: #4fc9c3;
+
+    background-color: var(--backgroundBlue);
+}
+
+.main-box{
+    height: 600px;
+    width: 400px;
+    margin: 1px;
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 32px;
+    text-align: center;
 }
