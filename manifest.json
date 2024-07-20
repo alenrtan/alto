@@ -4,7 +4,7 @@
     "description": "A Simple Weather Extension",
     "version": "1.0",
     "permissions":[
-      "storage"
+      "storage", "activeTab"
     ],
     "action": {
       "default_popup": "index.html"

@@ -5,11 +5,20 @@
 }
 
 .main-box{
-    height: 600px;
-    width: 400px;
+    height: 500px;
+    width: 300px;
     margin: 1px;
     font-family: "Comfortaa", sans-serif;
     font-optical-sizing: auto;
     font-size: 32px;
     text-align: center;
+}
+
+.content{
+    margin: 2vh;
+    border: #000;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    height: 450px;
 }
