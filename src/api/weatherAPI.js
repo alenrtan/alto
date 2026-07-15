@@ -31,6 +31,6 @@ export const getForecast = async (forecastLink) => {
             console.error("Forecast data not found. Check object.")
         }
     }catch(error){
-        console.error("Error getting forecast data. ", error)
+        console.error("Error getting forecast data. API endpoint error - check weatherAPI.js", error)
     }
 }

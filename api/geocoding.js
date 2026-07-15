@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default async function handler(req, res){
     // Chrome extension CORS blockage fix
+    // so yeah * bad, figure this out 
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");

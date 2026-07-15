@@ -4,6 +4,7 @@ import FooterItems from "../components/FooterItems"
 import AddressForm from "../components/AddressForm"
 import '../styles/main.css'
 import { getCoordinatesUsingAddress, getCoordinatesUsingZipcode } from "../api/geocoding"
+import { getForecast, getForecastLink } from "../api/weatherAPI"
 
 export default function App() {
 
@@ -28,7 +29,6 @@ export default function App() {
         // use that to get coords,
         // if no address is present, but just a zipcode (user used zipcode only form) get coords using zipcode
         // tldr; address > zipcode
-        
         if (addressData.street && addressData.city && addressData.state){
             const address = `${addressData.street} ${addressData.city}, ${addressData.state}`
             coords = await getCoordinatesUsingAddress(address);
@@ -42,8 +42,28 @@ export default function App() {
             localStorage.setItem("userAddress", JSON.stringify(coords)) 
             console.log("Address coordinates saved locally: ", coords);
             setIsFirstTimeUser(false);
-            
-            // get weather data
+        }
+    }
+
+    // fetch weather data from api endpoint
+    useEffect(() => {
+        console.log("useEffect running fetchWeather...")
+        fetchWeather();
+    }, []);
+
+    const fetchWeather = async () => {
+        try{
+            const coords = JSON.parse(localStorage.getItem("userAddress"));
+            const link = await getForecastLink(coords.lat, coords.long);
+            console.log("forecastLink is: ", link);
+
+            const response = await getForecast(link);
+            console.log("Response contains:", response)
+            const data = response;
+
+            console.log(data);
+        }catch(err){
+            console.log("Unable to get weather data. Error in landing file", err)
         }
     }
 
@@ -70,7 +90,11 @@ export default function App() {
                         </div><AddressForm onSubmit={handleAddressFormSubmit} />
                         </>
                     ) : (
-                        <div>Weather Data will be here</div>
+                        <div>
+                            <div className='text-container'>Weather Data will be here
+                                <button onClick={fetchWeather}>Get Weather Data</button>
+                            </div>
+                        </div>
                     )
                 }
             </div>
