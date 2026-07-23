@@ -4,7 +4,7 @@ import FooterItems from "../components/FooterItems"
 import AddressForm from "../components/AddressForm"
 import '../styles/main.css'
 import { getCoordinatesUsingAddress, getCoordinatesUsingZipcode } from "../api/geocoding"
-import { getForecast, getForecastLink } from "../api/weatherAPI"
+import { fetchWeather } from "../api/fetchWeather"
 
 export default function App() {
 
@@ -50,22 +50,6 @@ export default function App() {
         console.log("useEffect running fetchWeather...")
         fetchWeather();
     }, []);
-
-    const fetchWeather = async () => {
-        try{
-            const coords = JSON.parse(localStorage.getItem("userAddress"));
-            const link = await getForecastLink(coords.lat, coords.long);
-            console.log("forecastLink is: ", link);
-
-            const response = await getForecast(link);
-            console.log("Response contains:", response)
-            const data = response;
-
-            console.log(data);
-        }catch(err){
-            console.log("Unable to get weather data. Error in landing file", err)
-        }
-    }
 
     // returning the actual page
     return (
